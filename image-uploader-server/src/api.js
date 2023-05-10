@@ -74,8 +74,10 @@ router.post("/image", upload.single("file"), myFileUploader);
 
 app.use(
   cors({
-    origin: ["https://darling-liger-71b6f5.netlify.app/", "*"],
+    origin: "*",
     methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+    preflightContinue: false,
+    optionsSuccessStatus: 204
   })
 );
 
