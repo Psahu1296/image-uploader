@@ -15,7 +15,7 @@ export default function Home() {
   const [uploadFile, setUploadFile] = useState<any>();
 
   const fileRef = useRef<HTMLDivElement>(null);
-//   const Router = useRouter();
+  const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
     fileRef.current?.addEventListener("dragover", dragOverHandler);
     fileRef.current?.addEventListener("drop", dropHandler);
@@ -37,28 +37,7 @@ export default function Home() {
       e.stopPropagation();
       setFailed(false);
       const { files } = e.dataTransfer;
-
-      if (files && files.length) {
-        const filetype = files[0].type.split("/")[1];
-        if (filetype === "png" || filetype === "jpeg" || filetype === "jpg") {
-          let formData = new FormData();
-          setUploadFile(files[0]);
-          setIsValidFile(true);
-          formData.append("file", files[0]);
-          setUploading(true);
-          const config = {
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-            }
-          }
-          await axios
-            .post("https://image-uploader-server-c33i.onrender.com/image", formData, config).then((response) => Router.push({pathname: "/finalPage", query: {Link: `${response.data}`}}))
-            .finally(() => setUploading(false));
-            setUploaded(true);
-          return;
-        }
-        setIsValidFile(false);
-      }
+      uploadHandler(files)
     } catch (error) {
       console.error("error creating ===========>", error);
       setUploading(false);
@@ -66,6 +45,44 @@ export default function Home() {
     }
   };
 
+  const openInput = () => {
+    if (inputRef.current ) {
+      inputRef.current.focus()
+      inputRef.current.click()
+    }
+  }
+  const FileChnageHandler = async( e: any) => {
+
+    if (inputRef.current && inputRef.current.files) {
+      const files = inputRef.current.files
+      uploadHandler(files)
+    }
+  }
+
+  const uploadHandler = async (files: any) => {
+if (files && files.length) {
+      const filetype = files[0].type.split("/")[1];
+      if (filetype === "png" || filetype === "jpeg" || filetype === "jpg") {
+        let formData = new FormData();
+        setUploadFile(files[0]);
+        setIsValidFile(true);
+        formData.append("file", files[0]);
+        setUploading(true);
+        const config = {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          }
+        }
+        await axios
+          .post("https://image-uploader-server-c33i.onrender.com/image", formData, config).then((response) => Router.push({pathname: "/finalPage", query: {Link: `${response.data}`}}))
+          .finally(() => setUploading(false));
+          setUploaded(true);
+        return;
+      }
+      setIsValidFile(false);
+    }
+
+  }
   return (
     <main className="container">
       {failed ||
@@ -86,7 +103,8 @@ export default function Home() {
             <p className="info" style={{ marginTop: "0px" }}>
               Or
             </p>
-            <button className="upload">Choose a file</button>
+            <button className="upload" onClick={openInput}>Choose a file</button>
+            <input ref={inputRef} type="file" className="file_change" onChange={FileChnageHandler} />
           </div>
         ))}
       {uploading && <Uploader />}
