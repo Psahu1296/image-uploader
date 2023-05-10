@@ -48,7 +48,7 @@ export default function Home() {
           setUploading(true);
           const config = {
             headers: {
-              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Origin": "https://image-uploader-server-c33i.onrender.com",
             }
           }
           await axios
