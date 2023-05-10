@@ -5,7 +5,6 @@ const bodyParser = require("body-parser");
 const dotnet = require("dotenv");
 const Aws = require("@aws-sdk/client-s3");  
 const SignedUrl = require("@aws-sdk/s3-request-presigner");
-const serverless = require('serverless-http')
 
 
 dotnet.config();
@@ -41,10 +40,10 @@ const upload = multer({
 
 const app = express();
 const PORT = 5000;
-const router = express.Router();
 
 const myFileUploader = async (req, res) => {
   try {
+    res.set('Access-Control-Allow-Origin', '*');
     const params = {
       Bucket: BucketName,
       Key: req.file.originalname,
@@ -69,7 +68,7 @@ const myFileUploader = async (req, res) => {
   }
 };
 
-router.post("/image", upload.single("file"), myFileUploader);
+app.post("/image", upload.single("file"), myFileUploader);
 
 
 app.use(
@@ -84,9 +83,5 @@ app.use(
 app.use(bodyParser.json()); // handle json data
 app.use(bodyParser.urlencoded({ extended: true })); // handle URL-encoded data
 
-app.use(`/.netlify/functions/api`, router);
-
-module.exports = app;
-module.exports.handler = serverless(app);
 app.listen(PORT, () => console.log(`listening on port: ${PORT}`));
 
