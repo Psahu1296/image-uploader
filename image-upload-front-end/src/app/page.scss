@@ -62,13 +62,13 @@
   font-weight: 500;
   line-height: 18px;
   letter-spacing: -0.035em;
-  color: #BDBDBD;
+  color: #bdbdbd;
 }
 
 .upload {
   min-width: 101px;
   height: 32px;
-  background: #2F80ED;
+  background: #2f80ed;
   border-radius: 8px;
   border: none;
   padding: 8px 16px;
@@ -78,7 +78,18 @@
   line-height: 16px;
   letter-spacing: -0.035em;
   cursor: pointer;
+  font-family: Noto Sans;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: -0.035em;
+  text-align: center;
+  color: #ffffff;
 }
 .upload:active {
   transform: scale(0.9);
+}
+
+.file_change {
+  display: none;
 }
