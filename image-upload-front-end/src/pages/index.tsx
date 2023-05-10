@@ -47,7 +47,7 @@ export default function Home() {
           formData.append("file", files[0]);
           setUploading(true);
           await axios
-            .post("http://localhost:5000/image", formData).then((response) => Router.push({pathname: "/finalPage", query: {Link: `${response.data}`}}))
+            .post("https://image-uploader-server-c33i.onrender.com/image", formData).then((response) => Router.push({pathname: "/finalPage", query: {Link: `${response.data}`}}))
             .finally(() => setUploading(false));
             setUploaded(true);
           return;
