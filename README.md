@@ -1,6 +1,6 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">{Your project name}</h1>
+<h1 align="center">{Image-uploader}</h1>
 
 <div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
@@ -8,11 +8,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://645b5bf9c3f38117c9a4a354--darling-liger-71b6f5.netlify.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://github.com/Psahu1296/image-uploader">
       Solution
     </a>
     <span> | </span>
@@ -37,7 +37,7 @@
 
 ## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+![screenshot](https://image-uploader-12.s3.ap-south-1.amazonaws.com/projectImage.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIASW7L4JH2CD3NOU47%2F20230510%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20230510T123210Z&X-Amz-Expires=900&X-Amz-Signature=ebb3a144a691b2b792d175102e5776a3d1aee5e085ef46e85a6fc8ffc9e4de78&X-Amz-SignedHeaders=host&x-id=GetObject)
 
 Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
 
@@ -50,9 +50,9 @@ Introduce your projects by taking a screenshot or a gif. Try to tell visitors a 
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
-- [React](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
-- [Tailwind](https://tailwindcss.com/)
+- [Nextjs](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [scss](https://sass-lang.com/)
 
 ## Features
 
@@ -68,7 +68,7 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/your-user-name/your-project-name
+$ git clone https://github.com//Psahu1296/image-uploader.git
 
 # Install dependencies
 $ npm install
@@ -84,7 +84,7 @@ $ npm start
 - [Steps to replicate a design with only HTML and CSS](https://devchallenges-blogs.web.app/how-to-replicate-design/)
 - [Node.js](https://nodejs.org/)
 - [Marked - a markdown parser](https://github.com/chjj/marked)
-
+- []
 ## Contact
 
 - Website [your-website.com](https://{your-web-site-link})
