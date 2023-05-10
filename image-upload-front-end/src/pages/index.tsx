@@ -46,8 +46,13 @@ export default function Home() {
           setIsValidFile(true);
           formData.append("file", files[0]);
           setUploading(true);
+          const config = {
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+            }
+          }
           await axios
-            .post("https://image-uploader-server-c33i.onrender.com/image", formData).then((response) => Router.push({pathname: "/finalPage", query: {Link: `${response.data}`}}))
+            .post("https://image-uploader-server-c33i.onrender.com/image", formData, config).then((response) => Router.push({pathname: "/finalPage", query: {Link: `${response.data}`}}))
             .finally(() => setUploading(false));
             setUploaded(true);
           return;

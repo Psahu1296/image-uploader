@@ -74,7 +74,7 @@ router.post("/image", upload.single("file"), myFileUploader);
 
 app.use(
   cors({
-    origin: ["https://darling-liger-71b6f5.netlify.app/"],
+    origin: ["https://darling-liger-71b6f5.netlify.app/", "http://localhost:3000"],
     methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
   })
 );
@@ -86,5 +86,5 @@ app.use(`/.netlify/functions/api`, router);
 
 module.exports = app;
 module.exports.handler = serverless(app);
-app.listen(PORT, () => console.log(`listening on port: ${PORT}`));
+app.listen(() => console.log(`listening on port: ${PORT}`));
 
